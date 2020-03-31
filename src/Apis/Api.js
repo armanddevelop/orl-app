@@ -1,14 +1,21 @@
-const Api = (id, success, error) => {
+export const GetByMemberId = (id, success, error) => {
   let url = "http://localhost:3001/users/?MemberId=" + id;
-
   fetch(url)
-    .then(resp => resp.json())
-    .then(userInfo => {
-      success(userInfo);
+    .then(data => data.json())
+    .then(data => {
+      let [userInformation] = data;
+      success(userInformation);
     })
-    .catch(err => {
-      error(err);
-    });
+    .catch(err => error(err));
 };
-
-export default Api;
+export const GetByName = (id, success, error) => {
+  let url = "http://localhost:3001/users/?MemberId=" + id;
+  fetch(url)
+    .then(data => data.json())
+    .then(data => {
+      let [userInformation] = data;
+      success(userInformation);
+    })
+    .catch(err => error(err));
+};
+export default { GetByMemberId, GetByName };

@@ -1,36 +1,30 @@
 import React, { useState } from "react";
-
 import SearchBar from "./Components/SearchBar";
-//import useUserInfoAPI from "./Hooks/userInfo";
-import Api from "./Apis/Api";
 import UserInformation from "./Components/UserInformation";
 import ErrorMenssage from "./Components/Commons/ErrorMenssage";
-
+import Api from "./Apis/Api";
 function App() {
-  //let [userId, setUserId] = useState("0");
   let [idEmpty, setIdEmpty] = useState(false);
   let [userInformation, setUserInformation] = useState({});
   let [loading, setLoading] = useState(false);
-  //const [userInformation, loading] = useUserInfoAPI(userId);
 
   const setIdCostumer = id => {
     if (id === "") {
       setIdEmpty(true);
       return;
     }
-    //setUserId(userId);
+
     setIdEmpty(false);
     setLoading(true);
-    Api(
+    Api.GetByMemberId(
       id,
-      arrayInfo => {
-        let [userInformation] = arrayInfo;
-        console.log("Esta es la informacion desde App.js ", userInformation);
-        setUserInformation(userInformation);
+      info => {
+        console.log(info);
+        setUserInformation(info);
         setLoading(false);
       },
-      error => {
-        console.log(error);
+      err => {
+        console.log(err);
         setLoading(false);
       }
     );
@@ -39,11 +33,11 @@ function App() {
   return (
     <div className="App">
       <SearchBar setIdCostumer={setIdCostumer}></SearchBar>
+      {idEmpty && <ErrorMenssage></ErrorMenssage>}
       <UserInformation
         userInformation={userInformation}
         loading={loading}
       ></UserInformation>
-      {idEmpty && <ErrorMenssage></ErrorMenssage>}
     </div>
   );
 }
