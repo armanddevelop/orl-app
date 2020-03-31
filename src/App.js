@@ -33,11 +33,14 @@ function App() {
   return (
     <div className="App">
       <SearchBar setIdCostumer={setIdCostumer}></SearchBar>
-      {idEmpty && <ErrorMenssage></ErrorMenssage>}
-      <UserInformation
-        userInformation={userInformation}
-        loading={loading}
-      ></UserInformation>
+      {idEmpty ? (
+        <ErrorMenssage></ErrorMenssage>
+      ) : (
+        <UserInformation
+          userInformation={userInformation}
+          loading={loading}
+        ></UserInformation>
+      )}
     </div>
   );
 }

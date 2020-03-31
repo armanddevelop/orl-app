@@ -27,6 +27,7 @@
         "Locale": "en-UK",
         "OrderNumber": "Y554875"
       },
+      "locale": "en-UK",
       "name": "Ismael Cruz",
       "nor": true,
       "conuntry": "en-UK",
@@ -37,12 +38,14 @@
     {
       "id": 3,
       "MemberId": "789",
+      "ReferenceId": "OLR-Y154756465",
       "orderInfo": {
         "PaymentStatus": 2,
         "CountryCode": 233,
         "Locale": "it-IT",
         "OrderNumber": "Y87944"
       },
+      "locale": "it-IT",
       "name": "Omar Jimemnez",
       "nor": true,
       "conuntry": "IT",
