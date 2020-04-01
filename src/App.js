@@ -16,7 +16,7 @@ function App() {
 
     setIdEmpty(false);
     setLoading(true);
-    Api.GetByMemberId(
+    Api.GetDatabaseById(
       id,
       info => {
         console.log(info);
@@ -25,7 +25,7 @@ function App() {
       },
       err => {
         console.log(err);
-        setLoading(false);
+         setLoading(false);
       }
     );
   };
