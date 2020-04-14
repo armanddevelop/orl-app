@@ -1,5 +1,4 @@
 import React from "react";
-//import NoDataMessage from "./Commons/NoDataMessage";
 import Information from "./Information";
 import ReactLoading from "react-loading";
 const UserInformation = ({ userInformation, loading }) => {

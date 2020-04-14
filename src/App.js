@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import SearchBar from "./Components/SearchBar";
 import UserInformation from "./Components/UserInformation";
 import ErrorMenssage from "./Components/Commons/ErrorMenssage";
+import NoDataMessage from "./Components/Commons/NoDataMessage";
 import Api from "./Apis/Api";
 function App() {
   let [idEmpty, setIdEmpty] = useState(false);
   let [userInformation, setUserInformation] = useState({});
   let [loading, setLoading] = useState(false);
+  let [noData,setNoDataFound] =useState(false);
 
   const setIdCostumer = id => {
     if (id === "") {
@@ -22,10 +24,12 @@ function App() {
         console.log(info);
         setUserInformation(info);
         setLoading(false);
+        setNoDataFound(false);
       },
       err => {
         console.log(err);
          setLoading(false);
+         setNoDataFound(true);
       }
     );
   };
@@ -41,6 +45,9 @@ function App() {
           loading={loading}
         ></UserInformation>
       )}
+      {
+        noData && <NoDataMessage></NoDataMessage>
+      }
     </div>
   );
 }

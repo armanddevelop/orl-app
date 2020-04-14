@@ -8,7 +8,7 @@ const NoDataMessage = () => {
       className="container alert alert-danger"
       role="alert"
     >
-      No data for your search criteria. Try again
+      No data for your search criteria. Try again, please
     </div>
   );
 };
